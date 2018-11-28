@@ -1,12 +1,14 @@
-var numero = [400,200,1,-23];
+var page = require('page');
 
-var numeroMas1 = numero.map(function(numero){
-    return numero + 1;
+var main = document.getElementById('main-container');
+
+page('/', function(ctx, next){
+    main.innerHTML = 'Home <a href="/signup">Signup</a>'; //home
+})
+
+page('/signup', function(ctx, next){
+    main.innerHTML = 'signup <a href="/">Home</a>'; //signup
 
 })
 
-var numeroMas12 = numero.map(numero => numero + 1);
-
-
-console.log(numeroMas1);
-console.log(numeroMas12);
+page.start();
